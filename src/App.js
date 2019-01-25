@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import List from './List/List';
-import STORE from './store';
 import './App.css';
 
 class App extends Component {
 	render() {
-		const storeList = STORE.lists.map(list => {
-			return <List key={list.id} header={list.header} cardIds={list.cardIds} />;
+		const storeList = this.props.store.lists.map(list => {
+			const cardData = [];
+			list.cardIds.forEach(id => {
+				cardData.push(this.props.store.allCards[id]);
+			});
+			return <List key={list.id} header={list.header} cards={cardData} />;
 		});
 		return (
 			<div className="App">

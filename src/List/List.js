@@ -1,18 +1,11 @@
 import React from 'react';
 import Card from '../Card/Card';
-import STORE from '../store';
 import './List.css';
 
 class List extends React.Component {
 	render() {
-		const cards = this.props.cardIds.map(card => {
-			return (
-				<Card
-					key={card}
-					title={STORE.allCards[card].title}
-					content={STORE.allCards[card].content}
-				/>
-			);
+		const cards = this.props.cards.map((card, i) => {
+			return <Card key={i} title={card.title} content={card.content} />;
 		});
 		return (
 			<section className="List">
