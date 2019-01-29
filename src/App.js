@@ -3,8 +3,15 @@ import List from './List/List';
 import './App.css';
 
 class App extends Component {
+	static defaultProps = {
+		store: {
+			lists: [],
+			allCards: {}
+		}
+	};
 	render() {
-		const storeList = this.props.store.lists.map(list => {
+		const store = this.props.store;
+		const storeList = store.lists.map(list => {
 			const cardData = [];
 			list.cardIds.forEach(id => {
 				cardData.push(this.props.store.allCards[id]);

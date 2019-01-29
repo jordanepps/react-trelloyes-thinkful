@@ -7,6 +7,9 @@
 
 # testing
 /coverage
+App.test.js
+Card.test.js
+List.test.js
 
 # production
 /build

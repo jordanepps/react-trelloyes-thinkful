@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Card from '../Card/Card';
 import './List.css';
 
-class List extends React.Component {
+class List extends Component {
+	static defaultProps = {
+		header: '',
+		cards: []
+	};
 	render() {
 		const cards = this.props.cards.map((card, i) => {
 			return <Card key={i} title={card.title} content={card.content} />;
